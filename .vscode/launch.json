@@ -1,0 +1,11 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - MarketApplication",
+            "request": "launch",
+            "mainClass": "edu.ap.market.MarketApplication",
+            "projectName": "market"
+        }
+    ]
+}
