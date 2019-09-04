@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Random;
 import java.util.Set;
 
 
@@ -19,19 +20,21 @@ import java.util.Set;
 public class MarketController {
 
     private RedisService service; // pattern : "products":name:weight:amount
-    ArrayList<String> answers = new ArrayList<String>();
+    private static ArrayList<String> answers = new ArrayList<String>();
     
+    static{
+    answers.add("It is certain.");
+    answers.add("Signs point to yes.");
+    answers.add("Concentrate and ask again.");
+    answers.add("Very doubtful.");
+    }
     @Autowired
     public void setRedisService(RedisService service) {
         this.service = service;
     }
 
     public MarketController() {
-        
-    answers.add("It is certain.");
-    answers.add("Signs point to yes.");
-    answers.add("Concentrate and ask again.");
-    answers.add("Very doubtful."); }
+ }
   
 
     @RequestMapping("/")
@@ -45,22 +48,12 @@ public class MarketController {
     }
 
 
-    @RequestMapping("/listByName")
-    public String listProductsByName(@RequestParam("answer") String answer,
-                                       Model model) {
-        Product product = null;
-        String name="";
-        Set<String> keys = service.keys("answers:*");
-        if (answer !=null){
-            answer=name;
-        }
-        else{
-            answer="Yes, sure!";
-        }
-        
-        model.addAttribute("answer", product);
-
-        return "answer";
+    @RequestMapping("/getAnswer")
+    @ResponseBody
+    public String listProductsByName(
+                                       ) {
+                                   
+       return "Yes for certain!";
     }
 
 

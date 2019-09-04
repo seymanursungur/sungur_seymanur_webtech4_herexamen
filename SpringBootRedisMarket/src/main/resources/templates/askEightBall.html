@@ -14,14 +14,13 @@
     <h1>Ask a question</h1>
     <br/>
 
-    <form th:action='@{/listByName}' method='POST'>
+    <form th:action='@{/getAnswer}' method='POST'>
         <div class='form-group row'>
             <div class='col-xs-4'>
                 <label for='name'>Question: </label>
                 <input type='text' class='form-control' name='name' id='name'>
             </div>
         </div>
-
 
         <input type='SUBMIT' value='Save'>
     </form>
