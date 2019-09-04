@@ -1,6 +1,8 @@
-from django.conf.urls import path
-from . import  views
+from django.urls import path
+from . import views
+
 
 urlpatterns = [
-    path('<int:number_of_speed>/', views.detail, name='detail'),
+    path('',views.getJSON, name='getJSON'),
+   # path('<int:number_of_speed>/', views.detail, name='detail'),
 ]
